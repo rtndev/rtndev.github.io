@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love - 浪漫花园</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #fff4f6, #fffafa);
+    font-family: Arial, "Microsoft YaHei", sans-serif;
+    color: #704653;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+/* 标题 */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    color: #e66b8b;
+    font-size: 32px;
+    letter-spacing: 4px;
+}
+
+.header p {
+    color: #b58b98;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* 花朵装饰 */
+.decorations {
+    text-align: center;
+    font-size: 26px;
+    letter-spacing: 10px;
+    margin: 15px 0 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+}
+
+/* 鲜花图片 */
+.flower {
+    display: block;
+    width: 100%;
+    max-width: 550px;
+    max-height: 320px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+/* 花朵文字 */
+.flower-text {
+    text-align: center;
+    padding: 20px 10px;
+    color: #d77b95;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+/* 视频 */
+.video-box {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(200, 100, 130, .18);
+}
+
+video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* 个人介绍 */
+.profile {
+    margin: 30px auto;
+    padding: 28px 20px;
+    max-width: 650px;
+    text-align: center;
+    background: rgba(255,255,255,0.65);
+    border-radius: 16px;
+    border: 1px solid #f7dce4;
+}
+
+.profile-title {
+    color: #d95b79;
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.profile p {
+    color: #805b66;
+    font-size: 15px;
+    line-height: 2;
+}
+
+/* 微信区域 */
+.wechat-label {
+    margin-top: 22px;
+    color: #b47c8d;
+    font-size: 14px;
+}
+
+.wechat-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.wechat-id {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d95b79;
+    letter-spacing: 1px;
+}
+
+.copy-btn {
+    border: none;
+    padding: 11px 24px;
+    border-radius: 30px;
+    background: #e66b8b;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.copy-btn:hover {
+    background: #d94e75;
+    transform: translateY(-2px);
+}
+
+.copy-message {
+    display: none;
+    margin-top: 14px;
+    color: #2e9b68;
+    font-size: 14px;
+}
+
+/* 底部 */
+.footer {
+    text-align: center;
+    padding: 28px 0 15px;
+    color: #c58b9b;
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* 手机适配 */
+@media(max-width: 600px) {
+    .container {
+        padding: 20px 14px;
+    }
+
+    .header h1 {
+        font-size: 27px;
+    }
+
+    .decorations {
+        font-size: 22px;
+        letter-spacing: 7px;
+    }
+
+    .flower {
+        max-width: 100%;
+        max-height: 240px;
+    }
+
+    .flower-text {
+        font-size: 14px;
+    }
+
+    .flower,
+    .video-box {
+        border-radius: 12px;
+    }
+
+    .profile {
+        padding: 22px 14px;
+    }
+
+    .wechat-box {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- 页面标题 -->
+    <header class="header">
+        <h1>❤ Love ❤</h1>
+        <p>愿每一份美好，都如花般绽放</p>
+    </header>
+
+    <!-- 花朵装饰 -->
+    <div class="decorations">
+        🌸 🌷 🌹 🌺 🌼
+    </div>
+
+    <!-- 原来的鲜花图片 -->
+    <img
+        class="flower"
+        src="https://love.deople.ai/flower.JPG"
+        alt="Beautiful Flowers"
+    >
+
+    <div class="flower-text">
+        🌷 花开有时，浪漫无期 🌷
+    </div>
+
+    <!-- 原来的视频播放器：保留原生封面、自动播放和循环 -->
+    <div class="video-box">
+        <video
+            id="loveVideo"
+            controls
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+        >
+            <source
+                src="https://love.deople.ai/love.MP4"
+                type="video/mp4"
+            >
+            您的浏览器不支持视频播放。
+        </video>
+    </div>
+
+    <!-- 个人介绍 -->
+    <div class="profile">
+
+        <div class="profile-title">
+            🌹 关于我 🌹
+        </div>
+
+        <p>
+            我是一个拥有奉献型人格的人，
+            乐于付出、注重服务，
+            愿意以真诚、尊重和细致入微的态度，
+            用心满足女士的期待，
+            为女士带来愉悦与美好的体验。
+        </p>
+
+        <div class="wechat-label">
+            感兴趣欢迎添加微信交流
+        </div>
+
+        <!-- 微信号及复制按钮 -->
+        <div class="wechat-box">
+
+            <span class="wechat-id" id="wechatId">
+                TAN19999998
+            </span>
+
+            <button
+                class="copy-btn"
+                type="button"
+                onclick="copyWechat()"
+            >
+                📋 复制微信号
+            </button>
+
+        </div>
+
+        <div id="copyMessage" class="copy-message">
+            ✓ 微信号复制成功！
+        </div>
+
+    </div>
+
+    <!-- 页面底部 -->
+    <footer class="footer">
+        🌸 Love & Happiness 🌸<br>
+        Made with ❤
+    </footer>
+
+</div>
+
+<script>
+// 视频自动播放
+const video = document.getElementById("loveVideo");
+
+window.addEventListener("load", function() {
+    video.play().catch(function() {
+        console.log("浏览器限制自动播放，请点击播放按钮");
+    });
+});
+
+// 复制微信号
+async function copyWechat() {
+
+    const wechat = "TAN19999998";
+    const message = document.getElementById("copyMessage");
+
+    try {
+        await navigator.clipboard.writeText(wechat);
+
+    } catch (error) {
+
+        const textarea = document.createElement("textarea");
+        textarea.value = wechat;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        const success = document.execCommand("copy");
+        textarea.remove();
+
+        if (!success) {
+            message.style.display = "block";
+            message.textContent =
+                "复制失败，请手动复制：" + wechat;
+            return;
+        }
+    }
+
+    message.style.display = "block";
+    message.textContent = "✓ 微信号复制成功！";
+
+}
+</script>
+
+</body>
+</html>
