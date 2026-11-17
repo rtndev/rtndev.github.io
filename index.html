@@ -60,7 +60,6 @@ body {
     50% { transform: translateY(-7px); }
 }
 
-/* 鲜花图片 */
 .flower {
     display: block;
     width: 100%;
@@ -70,11 +69,10 @@ body {
     object-fit: contain;
     margin: 0 auto;
     border: none;
-    border-radius: 0;
+    border-radius: 16px;
     box-shadow: none;
     background: transparent;
 }
-
 /* 花朵文字 */
 .flower-text {
     text-align: center;
@@ -82,6 +80,17 @@ body {
     color: #d77b95;
     font-size: 16px;
     letter-spacing: 2px;
+}
+
+/* 视频标题 */
+.video-title {
+    margin: 8px auto 18px;
+    text-align: center;
+    color: #d95b79;
+    font-size: 23px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1.6;
 }
 
 /* 视频 */
@@ -99,76 +108,6 @@ video {
     display: block;
     width: 100%;
     height: auto;
-}
-
-/* 个人介绍 */
-.profile {
-    margin: 30px auto;
-    padding: 28px 20px;
-    max-width: 650px;
-    text-align: center;
-    background: rgba(255,255,255,0.65);
-    border-radius: 16px;
-    border: 1px solid #f7dce4;
-}
-
-.profile-title {
-    color: #d95b79;
-    font-size: 23px;
-    font-weight: bold;
-    margin-bottom: 18px;
-}
-
-.profile p {
-    color: #805b66;
-    font-size: 15px;
-    line-height: 2;
-}
-
-/* 微信区域 */
-.wechat-label {
-    margin-top: 22px;
-    color: #b47c8d;
-    font-size: 14px;
-}
-
-.wechat-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.wechat-id {
-    font-size: 20px;
-    font-weight: bold;
-    color: #d95b79;
-    letter-spacing: 1px;
-}
-
-.copy-btn {
-    border: none;
-    padding: 11px 24px;
-    border-radius: 30px;
-    background: #e66b8b;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.copy-btn:hover {
-    background: #d94e75;
-    transform: translateY(-2px);
-}
-
-.copy-message {
-    display: none;
-    margin-top: 14px;
-    color: #2e9b68;
-    font-size: 14px;
 }
 
 /* 底部 */
@@ -204,18 +143,19 @@ video {
         font-size: 14px;
     }
 
-    .flower,
+    .flower {
+        border-radius: 12px;
+    }
+
     .video-box {
         border-radius: 12px;
     }
 
-    .profile {
-        padding: 22px 14px;
+    .video-title {
+        font-size: 19px;
+        margin-bottom: 14px;
     }
 
-    .wechat-box {
-        flex-direction: column;
-    }
 }
 </style>
 </head>
@@ -246,6 +186,11 @@ video {
         🌷 花开有时，浪漫无期 🌷
     </div>
 
+    <!-- 视频标题 -->
+    <div class="video-title">
+        女人的美味，回味无穷
+    </div>
+
     <!-- 原来的视频播放器：保留原生封面、自动播放和循环 -->
     <div class="video-box">
         <video
@@ -263,48 +208,6 @@ video {
             >
             您的浏览器不支持视频播放。
         </video>
-    </div>
-
-    <!-- 个人介绍 -->
-    <div class="profile">
-
-        <div class="profile-title">
-            🌹 关于我 🌹
-        </div>
-
-        <p>
-            我是一个拥有奉献型人格的人，
-            乐于付出、注重服务，
-            愿意以真诚、尊重和细致入微的态度，
-            用心满足女士的期待，
-            为女士带来愉悦与美好的体验。
-        </p>
-
-        <div class="wechat-label">
-            感兴趣欢迎添加微信交流
-        </div>
-
-        <!-- 微信号及复制按钮 -->
-        <div class="wechat-box">
-
-            <span class="wechat-id" id="wechatId">
-                TAN19999998
-            </span>
-
-            <button
-                class="copy-btn"
-                type="button"
-                onclick="copyWechat()"
-            >
-                📋 复制微信号
-            </button>
-
-        </div>
-
-        <div id="copyMessage" class="copy-message">
-            ✓ 微信号复制成功！
-        </div>
-
     </div>
 
     <!-- 页面底部 -->
@@ -325,40 +228,6 @@ window.addEventListener("load", function() {
     });
 });
 
-// 复制微信号
-async function copyWechat() {
-
-    const wechat = "TAN19999998";
-    const message = document.getElementById("copyMessage");
-
-    try {
-        await navigator.clipboard.writeText(wechat);
-
-    } catch (error) {
-
-        const textarea = document.createElement("textarea");
-        textarea.value = wechat;
-        textarea.style.position = "fixed";
-        textarea.style.opacity = "0";
-
-        document.body.appendChild(textarea);
-        textarea.select();
-
-        const success = document.execCommand("copy");
-        textarea.remove();
-
-        if (!success) {
-            message.style.display = "block";
-            message.textContent =
-                "复制失败，请手动复制：" + wechat;
-            return;
-        }
-    }
-
-    message.style.display = "block";
-    message.textContent = "✓ 微信号复制成功！";
-
-}
 </script>
 
 
