@@ -82,6 +82,27 @@ body {
     letter-spacing: 2px;
 }
 
+/* 英文翻译：显示在中文上方 */
+.en-translation {
+    display: block;
+    margin-bottom: 5px;
+    color: #a94462;
+    font-size: 0.9em;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    line-height: 1.5;
+}
+
+/* 页面副标题英文更醒目 */
+.header p .en-translation {
+    font-size: 16px;
+}
+
+/* 视频标题英文清晰突出，但保留中文主标题 */
+.video-title .en-translation {
+    font-size: 19px;
+}
+
 /* 视频标题 */
 .video-title {
     margin: 8px auto 18px;
@@ -156,6 +177,14 @@ video {
         margin-bottom: 14px;
     }
 
+    .header p .en-translation {
+        font-size: 14px;
+    }
+
+    .video-title .en-translation {
+        font-size: 16px;
+    }
+
 }
 </style>
 </head>
@@ -167,7 +196,7 @@ video {
     <!-- 页面标题 -->
     <header class="header">
         <h1>❤ Love ❤</h1>
-        <p>花开有香，美味有爱</p>
+        <p><span class="en-translation" lang="en">Where flowers bloom with fragrance, flavor is filled with love.</span>花开有香，美味有爱</p>
     </header>
 
     <!-- 花朵装饰 -->
@@ -186,6 +215,7 @@ video {
 
     <!-- 视频标题 -->
     <div class="video-title">
+        <span class="en-translation" lang="en">Exquisite beyond words, unforgettable to the very last taste.</span>
         美妙绝伦，回味无穷
     </div>
 
@@ -204,6 +234,7 @@ video {
                 src="https://v.deople.ai/love.MP4"
                 type="video/mp4"
             >
+            <span class="en-translation" lang="en">Your browser does not support video playback.</span>
             您的浏览器不支持视频播放。
         </video>
     </div>
